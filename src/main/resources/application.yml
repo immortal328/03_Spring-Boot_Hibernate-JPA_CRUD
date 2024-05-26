@@ -1,17 +1,10 @@
 spring:
   application:
-    name: Spring-Boot_Hibernate-JPA_CRUD
+    name: Spring-Boot_Hibernate-JPA_CRUD  
+  jpa:
+    open-in-view: false
     
   datasource:
-    url: jdbc:mysql://localhost:3306/student_tracker
+    url: jdbc:mysql://127.0.0.1:3306/student_tracker
     username: springstudent
     password: springstudent
-
-# Turn off the Spring Boot banner
-    main:
-      banner-mode: off
-
-# Reduce logging level. Set logging level to warn
-logging:
-  level:
-    root: warn
