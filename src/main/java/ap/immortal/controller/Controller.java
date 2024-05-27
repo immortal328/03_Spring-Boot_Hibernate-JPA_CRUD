@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ap.immortal.model.Student;
@@ -56,6 +57,16 @@ public class Controller {
 		return new ResponseEntity<List<Student>>(studentService.getStudentBylastName(lastName), HttpStatusCode.valueOf(200));
 	}
 	
+	@GetMapping("/v1/entityManager/update/lastName/{lastName}/id/{id}")
+	public String getUpdateByID(@PathVariable Integer id, @PathVariable String lastName) {
+		return "<h1>"+ studentService.getUpdateStudentLastNameOfId(id, lastName)+"</h1>";
+	}
+	
+	@GetMapping("/v1/entityManager/delete/id/{id}")
+	public String getDeleteByID(@PathVariable Integer id) {
+		return "<h1>"+ studentService.getDeleteStudentById(id)+"</h1>";		
+	}
+	
 	
 	
 	//JPARepository
@@ -78,5 +89,17 @@ public class Controller {
 	public ResponseEntity<List<Student>> fetchStudentByLastName(@PathVariable String lastName){
 		return new ResponseEntity<List<Student>>(studentService.fetchStudentBylastName(lastName), HttpStatusCode.valueOf(200));
 	}
+	
+	@GetMapping("/v1/JPA/update/lastName/{lastName}/id/{id}")
+	public String fetchUpdateByID(@PathVariable Integer id, @PathVariable String lastName) {
+		return "<h1>"+studentService.fetchUpdateStudentLastNameOfId(id, lastName)+"</h1>";		
+	}
+	
+	@GetMapping("/v1/JPA/delete/id/{id}")
+	public String fetchDeleteByID(@PathVariable Integer id) {
+		return "<h1>"+studentService.fetchDeleteStudentById(id)+"</h1>";		
+	}
+	
+	
 
 }

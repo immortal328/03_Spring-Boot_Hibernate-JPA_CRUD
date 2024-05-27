@@ -34,6 +34,14 @@ public class StudentService {
 		return studentDAOImple.getStudentByLastNmae(lastName);
 	}
 	
+	public String getUpdateStudentLastNameOfId(Integer id, String lastName) {
+		return studentDAOImple.getupdateStudentLastNameOfID(id, lastName);
+	}
+	
+	public String  getDeleteStudentById(Integer id) {
+		return studentDAOImple.getdeleteStudentByID(id);		
+	}
+	
 	//Using JPARepository
 	public Student fetchStudentByID(Integer id) {return repository.findStudentById(id);}	
 	public List<Student> fetchStudentsByStd(Integer std) {return repository.findByStd(std);}
@@ -44,6 +52,7 @@ public class StudentService {
 			System.out.println("Inserted succesfully...");
 		}
 	}
+	
 	public List<Student> fetchAllStudent() {
 		return repository.findAll();
 	}
@@ -51,5 +60,19 @@ public class StudentService {
 	public List<Student> fetchStudentBylastName(String lastName) {
 		return repository.findByLastName(lastName);
 	}
+	
+	public String fetchUpdateStudentLastNameOfId(Integer id, String lastName) {
+		Student student = fetchStudentByID(id);
+		student.setLastName(lastName);
+		repository.save(student);
+		return String.format("Updated Student lastName to %s of id %d by JPA", lastName,id);
+	}
+	
+	public String fetchDeleteStudentById(Integer id) {
+		repository.deleteById(id);
+		return String.format("Deleted Row of ID : %d", id);
+	}
+	
+	
 
 }

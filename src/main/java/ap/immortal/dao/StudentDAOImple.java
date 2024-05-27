@@ -56,4 +56,22 @@ public class StudentDAOImple implements StudentDAO {
 		query.setParameter("theLastName", lastName);
 		return query.getResultList();
 	}
+	
+	@Override
+	@Transactional
+	public String getupdateStudentLastNameOfID(Integer id, String lastNmae) {
+		Student student  = getStudentByID(id);
+		student.setLastName(lastNmae);
+		entitymanager.merge(student);
+		return String.format("Updated Student lastName to %s of id %d by EntityManager", lastNmae,id);
+		
+	}
+
+	@Override
+	public String getdeleteStudentByID(Integer id) {
+		TypedQuery<Student> query = entitymanager.createQuery("DELETE FROM Student where id=:theID", Student.class);
+		query.setParameter("theID", id);
+		return String.format("Deleted row : %d of id : %d", query.executeUpdate(),id);
+	}
+
 }
