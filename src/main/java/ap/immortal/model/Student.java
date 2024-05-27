@@ -36,4 +36,12 @@ public class Student {
     @Column(name="std")
     private Integer std;
     
+    @Column(name="mobile_number")
+    private String mobileNumber;
+    
+    @Column(name="house_number")
+    private String houseNumber;
+    
+    
+    
 }

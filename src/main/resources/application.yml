@@ -2,9 +2,20 @@ spring:
   application:
     name: Spring-Boot_Hibernate-JPA_CRUD  
   jpa:
+    hibernate:
+      ddl-auto: update
     open-in-view: false
     
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/student_tracker
     username: springstudent
     password: springstudent
+    
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        orm:
+          jdbc:
+            bind: trace
