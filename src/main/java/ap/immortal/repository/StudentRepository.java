@@ -1,10 +1,11 @@
 package ap.immortal.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import ap.immortal.model.Student;
-import java.util.List;
 
 
 @Repository

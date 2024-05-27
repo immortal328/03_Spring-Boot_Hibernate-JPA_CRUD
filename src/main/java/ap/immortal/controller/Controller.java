@@ -35,16 +35,33 @@ public class Controller {
 		return "Inserted Data Using EntityManager ...";
 	}
 	
-	@GetMapping("/studentEm/{id}")
+	//EntityManager
+	@GetMapping("/v1/entityManager/student/{id}")
 	public ResponseEntity<Student> getStudentByID(@PathVariable Integer id){
-		Student student = studentService.getStudentByID(id);	
-		return new ResponseEntity<Student>(student, HttpStatusCode.valueOf(200));
+		return new ResponseEntity<Student>(studentService.getStudentByID(id), HttpStatusCode.valueOf(200));
 	}
 	
-	@GetMapping("/studentJpa/{std}")
+	@GetMapping("/v1/entityManager/students/std/{std}")
+	public ResponseEntity<List<Student>> getStudentsByStd(@PathVariable Integer std){
+		return new ResponseEntity<List<Student>>(studentService.getStudentsByStd(std), HttpStatusCode.valueOf(200));
+	}
+	
+	@GetMapping("/v1/entityManager/allStudent")
+	public ResponseEntity<List<Student>> getAllStudents(){
+		return new ResponseEntity<List<Student>>(studentService.getAllStudent(), HttpStatusCode.valueOf(200));
+	}
+	
+	
+	
+	//JPARepository
+	@GetMapping("/v1/JPA/student/{id}")
+	public ResponseEntity<Student> fetchStudentByID(@PathVariable Integer id) {
+		return new ResponseEntity<Student>(studentService.fetchStudentByID(id), HttpStatusCode.valueOf(200));
+	}
+	
+	@GetMapping("/v1/JPA/students/std/{std}")
 	public ResponseEntity<List<Student>> fetchStudentsByStd(@PathVariable Integer std){
-		List<Student> students = studentService.fetchStudentsByStd(std);	
-		return new ResponseEntity<List<Student>>(students, HttpStatusCode.valueOf(200));
+		return new ResponseEntity<List<Student>>(studentService.fetchStudentsByStd(std), HttpStatusCode.valueOf(200));
 	}
 
 }

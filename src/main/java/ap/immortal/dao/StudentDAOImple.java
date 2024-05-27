@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import ap.immortal.model.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -39,6 +40,14 @@ public class StudentDAOImple implements StudentDAO {
 	}
 
 	public List<Student> getStudentsByStd(Integer std) {
-		return null;
+		TypedQuery<Student> query = entitymanager.createQuery("FROM Student WHERE std=:theStd", Student.class);
+		query.setParameter("theStd", std);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Student> getAll() {
+		TypedQuery<Student> query = entitymanager.createQuery("FROM Student", Student.class);
+		return query.getResultList();
 	}
 }
