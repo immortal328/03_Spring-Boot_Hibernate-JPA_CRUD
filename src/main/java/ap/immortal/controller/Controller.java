@@ -51,6 +51,11 @@ public class Controller {
 		return new ResponseEntity<List<Student>>(studentService.getAllStudent(), HttpStatusCode.valueOf(200));
 	}
 	
+	@GetMapping("/v1/entityManager/student/lastName/{lastName}")
+	public ResponseEntity<List<Student>> getStudentByLastName(@PathVariable String lastName){
+		return new ResponseEntity<List<Student>>(studentService.getStudentBylastName(lastName), HttpStatusCode.valueOf(200));
+	}
+	
 	
 	
 	//JPARepository
@@ -62,6 +67,16 @@ public class Controller {
 	@GetMapping("/v1/JPA/students/std/{std}")
 	public ResponseEntity<List<Student>> fetchStudentsByStd(@PathVariable Integer std){
 		return new ResponseEntity<List<Student>>(studentService.fetchStudentsByStd(std), HttpStatusCode.valueOf(200));
+	}
+	
+	@GetMapping("/v1/JPA/allStudent")
+	public ResponseEntity<List<Student>> fetchAllStudents(){
+		return new ResponseEntity<List<Student>>(studentService.fetchAllStudent(), HttpStatusCode.valueOf(200));
+	}
+	
+	@GetMapping("/v1/JPA/student/lastName/{lastName}")
+	public ResponseEntity<List<Student>> fetchStudentByLastName(@PathVariable String lastName){
+		return new ResponseEntity<List<Student>>(studentService.fetchStudentBylastName(lastName), HttpStatusCode.valueOf(200));
 	}
 
 }

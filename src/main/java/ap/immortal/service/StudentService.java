@@ -30,6 +30,10 @@ public class StudentService {
 		}
 	}
 	
+	public List<Student> getStudentBylastName(String lastName) {
+		return studentDAOImple.getStudentByLastNmae(lastName);
+	}
+	
 	//Using JPARepository
 	public Student fetchStudentByID(Integer id) {return repository.findStudentById(id);}	
 	public List<Student> fetchStudentsByStd(Integer std) {return repository.findByStd(std);}
@@ -40,7 +44,12 @@ public class StudentService {
 			System.out.println("Inserted succesfully...");
 		}
 	}
+	public List<Student> fetchAllStudent() {
+		return repository.findAll();
+	}
 	
-	
+	public List<Student> fetchStudentBylastName(String lastName) {
+		return repository.findByLastName(lastName);
+	}
 
 }

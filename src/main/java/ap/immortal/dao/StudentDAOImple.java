@@ -50,4 +50,10 @@ public class StudentDAOImple implements StudentDAO {
 		TypedQuery<Student> query = entitymanager.createQuery("FROM Student", Student.class);
 		return query.getResultList();
 	}
+
+	public List<Student> getStudentByLastNmae(String lastName) {
+		TypedQuery<Student> query = entitymanager.createQuery("FROM Student WHERE lastNmae=:theLastName", Student.class);
+		query.setParameter("theLastName", lastName);
+		return query.getResultList();
+	}
 }
