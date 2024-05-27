@@ -68,10 +68,11 @@ public class StudentDAOImple implements StudentDAO {
 	}
 
 	@Override
+	@Transactional
 	public String getdeleteStudentByID(Integer id) {
-		TypedQuery<Student> query = entitymanager.createQuery("DELETE FROM Student where id=:theID", Student.class);
-		query.setParameter("theID", id);
-		return String.format("Deleted row : %d of id : %d", query.executeUpdate(),id);
+		Student student = getStudentByID(id);
+		entitymanager.remove(student);
+		return String.format("Deleted Row of ID : %d", id);
 	}
 
 }
