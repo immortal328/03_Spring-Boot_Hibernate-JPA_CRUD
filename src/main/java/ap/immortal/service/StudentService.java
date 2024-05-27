@@ -42,6 +42,10 @@ public class StudentService {
 		return studentDAOImple.getdeleteStudentByID(id);		
 	}
 	
+	public String getDeleteAll() {
+		return studentDAOImple.entityDeleteAll();		
+	}
+	
 	//Using JPARepository
 	public Student fetchStudentByID(Integer id) {return repository.findStudentById(id);}	
 	public List<Student> fetchStudentsByStd(Integer std) {return repository.findByStd(std);}
@@ -71,6 +75,11 @@ public class StudentService {
 	public String fetchDeleteStudentById(Integer id) {
 		repository.deleteById(id);
 		return String.format("Deleted Row of ID : %d", id);
+	}
+	
+	public String fetchDeleteAll() {
+		repository.deleteAll();
+		return "Deleted All Rows";
 	}
 	
 	

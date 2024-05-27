@@ -12,5 +12,6 @@ public interface StudentDAO {
 	public List<Student> getStudentByLastNmae(String lastName);
 	public String getupdateStudentLastNameOfID(Integer id,String lastNmae);
 	public String getdeleteStudentByID(Integer id);
+	public String entityDeleteAll();
 
 }

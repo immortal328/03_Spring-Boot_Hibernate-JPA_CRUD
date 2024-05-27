@@ -67,6 +67,13 @@ public class Controller {
 		return "<h1>"+ studentService.getDeleteStudentById(id)+"</h1>";		
 	}
 	
+	@GetMapping("/v1/entityManager/deleteAll")
+	public String getDeleteAll() {
+		return "<h1>"+ studentService.getDeleteAll()+"</h1>";		
+	}
+	
+	
+	
 	
 	
 	//JPARepository
@@ -98,6 +105,11 @@ public class Controller {
 	@GetMapping("/v1/JPA/delete/id/{id}")
 	public String fetchDeleteByID(@PathVariable Integer id) {
 		return "<h1>"+studentService.fetchDeleteStudentById(id)+"</h1>";		
+	}
+	
+	@GetMapping("/v1/JPA/deleteAll")
+	public String fetchDeleteByID() {
+		return "<h1>"+ studentService.fetchDeleteAll()+"</h1>";		
 	}
 	
 	

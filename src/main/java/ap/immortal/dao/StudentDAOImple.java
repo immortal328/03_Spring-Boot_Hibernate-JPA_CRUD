@@ -75,4 +75,11 @@ public class StudentDAOImple implements StudentDAO {
 		return String.format("Deleted Row of ID : %d", id);
 	}
 
+	@Override
+	@Transactional
+	public String entityDeleteAll() {
+		int deletedRows = entitymanager.createQuery("DELETE FROM Student").executeUpdate();
+		return String.format("Deteted %d Rows", deletedRows);
+	}
+
 }
