@@ -25,11 +25,20 @@ public class StudentDAOImple implements StudentDAO {
 		entitymanager.persist(student);	
 		System.out.println("Saved Student using EntityManager : "+student.toString());
 	}
+	
 	@Transactional
 	public void insertStudentDetails(List<Student> list) {
 		for(Student student : list) {
 			save(student);
 			System.out.println("Inserted succesfully...");
 		}
+	}
+
+	public Student getStudentByID(Integer id) {
+		return entitymanager.find(Student.class, id);		
+	}
+
+	public List<Student> getStudentsByStd(Integer std) {
+		return null;
 	}
 }
