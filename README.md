@@ -2,7 +2,10 @@
 
 Crafted a dynamic Spring Boot Hibernate/JPA project facilitating complete only <strong>GET</stron> class to fetch data from DB. based Student model attribute like id, lastNmae, std and id std 
 you can ignore where im doing delete operation using GET 
+
 It is just for pracitic : other repository with name : <h6>Spring-Boot_REST-API_CRUD</h6>
+
+
 The project offers two sets of REST endpoints: 
   - the first set, accessible via '/v1/entityManager', employs EntityManager for CRUD functionality.
       - GET : "/v1/entityManager/student/{id}"
