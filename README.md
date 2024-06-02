@@ -1,9 +1,9 @@
 <h1>Spring-Boot Hibernate / JPA</h1>
 
 Crafted a dynamic Spring Boot Hibernate/JPA project facilitating complete only <strong>GET</stron> class to fetch data from DB. based Student model attribute like id, lastNmae, std and id std 
-you can ignore where im doing delete operation using GET 
+you can ignore where im doing delete operation using GET call
 
-It is just for pracitic : other repository with name : <h6>Spring-Boot_REST-API_CRUD</h6>
+It is just for the practice repository: refer another repository with name : <h6>Spring-Boot_REST-API_CRUD</h6>
 
 
 The project offers two sets of REST endpoints: 
